@@ -1,5 +1,5 @@
 import re
-from src.dao.customer_dao import CustomerDAO
+from RDBMS_project.src.dao.customer_dao import CustomerDAO
 
 
 class InputValidator:

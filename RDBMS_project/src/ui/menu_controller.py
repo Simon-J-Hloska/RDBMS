@@ -1,13 +1,13 @@
-from src.model.customer import Customer
-from src.ui.user_interface import UserInterface
-from src.service.customer_service import CustomerService
-from src.service.order_service import OrderService
-from src.service.report_service import ReportService
-from src.service.import_service import ImportService
-from src.repository.product_repository import ProductRepository
-from src.model.product import Product
-from src.utils.error_handler import ErrorHandler
-from src.dao.customer_dao import CustomerDAO
+from RDBMS_project.src.model.customer import Customer
+from RDBMS_project.src.ui.user_interface import UserInterface
+from RDBMS_project.src.service.customer_service import CustomerService
+from RDBMS_project.src.service.order_service import OrderService
+from RDBMS_project.src.service.report_service import ReportService
+from RDBMS_project.src.service.import_service import ImportService
+from RDBMS_project.src.repository.product_repository import ProductRepository
+from RDBMS_project.src.model.product import Product
+from RDBMS_project.src.utils.error_handler import ErrorHandler
+from RDBMS_project.src.dao.customer_dao import CustomerDAO
 
 
 class MenuController:
@@ -721,8 +721,18 @@ class MenuController:
             if not products:
                 self.ui.print_info("Žádný produkt v DB")
             else:
-                for product in products:
-                    self.ui.print_success(product.name)
+                headers = ["ID", "Název", "Popis", "Cena", "Sklad"]
+                rows = [
+                    [
+                        p.product_id,
+                        p.name,
+                        p.description,
+                        p.price,
+                        p.stock_quantity
+                    ]
+                    for p in products
+                ]
+                self.ui.print_table(headers, rows)
         except Exception as e:
             self.ui.print_error(ErrorHandler.handle_exception(e))
 

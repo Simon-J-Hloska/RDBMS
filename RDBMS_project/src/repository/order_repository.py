@@ -1,7 +1,7 @@
-from src.dao.order_dao import OrderDAO
-from src.dao.order_item_dao import OrderItemDAO
-from src.model.order import Order
-from src.model.order_item import OrderItem
+from RDBMS_project.src.dao.order_dao import OrderDAO
+from RDBMS_project.src.dao.order_item_dao import OrderItemDAO
+from RDBMS_project.src.model.order import Order
+from RDBMS_project.src.model.order_item import OrderItem
 
 
 class OrderRepository:

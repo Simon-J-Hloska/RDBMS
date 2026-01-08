@@ -1,6 +1,6 @@
-from src.repository.order_repository import OrderRepository
-from src.repository.product_repository import ProductRepository
-from src.repository.customer_repository import CustomerRepository
+from RDBMS_project.src.repository.order_repository import OrderRepository
+from RDBMS_project.src.repository.product_repository import ProductRepository
+from RDBMS_project.src.repository.customer_repository import CustomerRepository
 
 
 class ReportService:

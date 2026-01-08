@@ -1,12 +1,12 @@
 import csv
 import json
-from src.repository.customer_repository import CustomerRepository
-from src.repository.product_repository import ProductRepository
-from src.model.customer import Customer
-from src.model.product import Product
-from src.database.transaction_manager import TransactionManager
-from src.utils.input_validator import InputValidator
-from src.utils.error_handler import ErrorHandler
+from RDBMS_project.src.repository.customer_repository import CustomerRepository
+from RDBMS_project.src.repository.product_repository import ProductRepository
+from RDBMS_project.src.model.customer import Customer
+from RDBMS_project.src.model.product import Product
+from RDBMS_project.src.database.transaction_manager import TransactionManager
+from RDBMS_project.src.utils.input_validator import InputValidator
+from RDBMS_project.src.utils.error_handler import ErrorHandler
 
 
 class ImportService:

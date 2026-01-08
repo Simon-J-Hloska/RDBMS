@@ -1,7 +1,7 @@
-from src.repository.customer_repository import CustomerRepository
-from src.model.customer import Customer
-from src.utils.input_validator import InputValidator
-from src.utils.error_handler import ErrorHandler
+from RDBMS_project.src.repository.customer_repository import CustomerRepository
+from RDBMS_project.src.model.customer import Customer
+from RDBMS_project.src.utils.input_validator import InputValidator
+from RDBMS_project.src.utils.error_handler import ErrorHandler
 
 
 class CustomerService:

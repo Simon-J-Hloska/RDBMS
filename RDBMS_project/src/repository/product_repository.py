@@ -1,16 +1,27 @@
-from src.dao.product_dao import ProductDAO
-from src.model.product import Product
+from RDBMS_project.src.dao.product_dao import ProductDAO
+from RDBMS_project.src.model.product import Product
 
 
 class ProductRepository:
     def __init__(self):
         self.dao = ProductDAO()
 
+    @staticmethod
+    def check_is_not_null(product):
+        for value in product:
+            if value.trim == "" or value is not None:
+                raise TypeError('pole nesmí být prázdné')
+
     def save(self, product):
         """
         :param product: Product object
         :return: Product ID
         """
+        self.check_is_not_null(product)
+        if product.price < 0:
+            raise ValueError("cena musí být víc než nula")
+        if product.stock_quantity <= 0:
+            raise ValueError("musí být alespoň 1 produkt na skladě")
         return self.dao.create(
             product.name,
             product.description,
@@ -57,6 +68,11 @@ class ProductRepository:
         :param product: Product object
         :return: Number of affected rows
         """
+        self.check_is_not_null(product)
+        if product.price < 0:
+            raise ValueError("cena musí být víc než nula")
+        if product.stock_quantity <= 0:
+            raise ValueError("musí být alespoň 1 produkt na skladě")
         return self.dao.update(
             product.product_id,
             product.name,
@@ -73,6 +89,9 @@ class ProductRepository:
         return self.dao.delete(product_id)
 
     def update_stock(self, product_id, quantity_change):
+        self.check_is_not_null(quantity_change)
+        if quantity_change <= 0:
+            raise ValueError("musí být alespoň 1 produkt na skladě, popř. odstraňte produkt")
         """
         :param product_id: Product ID
         :param quantity_change: Quantity to add or subtract

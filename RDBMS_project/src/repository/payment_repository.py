@@ -1,5 +1,5 @@
-from src.dao.payment_dao import PaymentDAO
-from src.model.payment import Payment
+from RDBMS_project.src.dao.payment_dao import PaymentDAO
+from RDBMS_project.src.model.payment import Payment
 
 
 class PaymentRepository:

@@ -1,6 +1,6 @@
-from src.dao.customer_dao import CustomerDAO
-from src.dao.payment_dao import PaymentDAO
-from src.model.customer import Customer
+from RDBMS_project.src.dao.customer_dao import CustomerDAO
+from RDBMS_project.src.dao.payment_dao import PaymentDAO
+from RDBMS_project.src.model.customer import Customer
 
 
 class CustomerRepository:

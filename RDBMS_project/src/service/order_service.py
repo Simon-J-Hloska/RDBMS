@@ -1,12 +1,12 @@
-from src.repository.order_repository import OrderRepository
-from src.repository.product_repository import ProductRepository
-from src.repository.customer_repository import CustomerRepository
-from src.repository.payment_repository import PaymentRepository
-from src.model.order import Order
-from src.model.order_item import OrderItem
-from src.model.payment import Payment
-from src.database.transaction_manager import TransactionManager
-from src.utils.error_handler import ErrorHandler
+from RDBMS_project.src.repository.order_repository import OrderRepository
+from RDBMS_project.src.repository.product_repository import ProductRepository
+from RDBMS_project.src.repository.customer_repository import CustomerRepository
+from RDBMS_project.src.repository.payment_repository import PaymentRepository
+from RDBMS_project.src.model.order import Order
+from RDBMS_project.src.model.order_item import OrderItem
+from RDBMS_project.src.model.payment import Payment
+from RDBMS_project.src.database.transaction_manager import TransactionManager
+from RDBMS_project.src.utils.error_handler import ErrorHandler
 
 
 class OrderService:
@@ -131,7 +131,7 @@ class OrderService:
         :param status: New status
         :return: Number of affected rows
         """
-        valid_statuses = ['pending', 'confirmed', 'shipped', 'delivered', 'cancelled']
+        valid_statuses = ['pending','paid','shipped','cancelled']
         ErrorHandler.validate_and_raise(
             status in valid_statuses,
             f"Neplatný status. Povolené hodnoty: {', '.join(valid_statuses)}"

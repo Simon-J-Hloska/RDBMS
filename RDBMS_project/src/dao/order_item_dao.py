@@ -1,4 +1,4 @@
-from src.database.database_connection import DatabaseConnection
+from RDBMS_project.src.database.database_connection import DatabaseConnection
 
 
 class OrderItemDAO:
