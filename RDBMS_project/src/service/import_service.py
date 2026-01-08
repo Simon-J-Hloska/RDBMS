@@ -1,5 +1,7 @@
 import csv
 import json
+from pathlib import Path
+
 from RDBMS_project.src.repository.customer_repository import CustomerRepository
 from RDBMS_project.src.repository.product_repository import ProductRepository
 from RDBMS_project.src.model.customer import Customer
@@ -15,14 +17,16 @@ class ImportService:
         self.product_repository = ProductRepository()
         self.transaction_manager = TransactionManager()
 
-    def import_customers_from_csv(self, file_path):
+    def import_customers_from_csv(self, filename):
         """
-        :param file_path: Path to CSV file
+        :param filename: Path to CSV file
         :return: Number of imported customers
         """
         customers = []
+        base_dir = Path(__file__).resolve().parent
+        data_path = base_dir / "../../data/{filename}".format(filename=filename)
 
-        with open(file_path, 'r', encoding='utf-8') as file:
+        with open(data_path, 'r', encoding='utf-8') as file:
             reader = csv.DictReader(file)
             for row in reader:
                 ErrorHandler.validate_and_raise(
@@ -51,12 +55,15 @@ class ImportService:
 
         return self.transaction_manager.execute_in_transaction([import_transaction])[0]
 
-    def import_products_from_json(self, file_path):
+    def import_products_from_json(self, filename):
         """
-        :param file_path: Path to JSON file
+        :param filename: Path to JSON file
         :return: Number of imported products
         """
-        with open(file_path, 'r', encoding='utf-8') as file:
+        base_dir = Path(__file__).resolve().parent
+        data_path = base_dir / "../../data/{filename}".format(filename=filename)
+
+        with open(data_path, 'r', encoding='utf-8') as file:
             data = json.load(file)
 
         products = []

@@ -57,6 +57,8 @@ class DatabaseConnection:
         base_dir = Path(__file__).resolve().parent
         sql_path = base_dir / "../../sql/{filename}".format(filename=filename)
         sql_content = sql_path.read_text(encoding="utf-8")
+        if sql_content.strip() == "":
+            return
         for statement in sql_content.split(';'):
             stmt = statement.strip()
             print(stmt)
