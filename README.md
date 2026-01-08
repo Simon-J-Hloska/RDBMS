@@ -10,10 +10,15 @@ Aplikace používá soubor `app_config.ini` pro nastavení databáze a informac�
 
 [database]
 host = localhost
+
 port = 3306
+
 database = orders_management
+
 user = root
+
 password = password
+
 
 [application]
 name = OrdersManagementApplication
@@ -34,20 +39,16 @@ version = 1.0.0
 vzor pro generování dat:
 
 -- produkty JSON
-[
   {
     "name": "Laptop",
     "description": "15-inch business laptop",
     "price": 1200.00,
     "stock_quantity": 10
   }
-]
 
 -- zákazníci CSV
 first_name,last_name,email,phone
 John,Doe,john.doe@example.com,+420111222333
-Jane,Smith,jane.smith@example.com,+420444555666
-Alice,Brown,alice.brown@example.com,+420777888999
 
 
 4. Spuštění aplikace:
