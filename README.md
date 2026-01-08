@@ -25,7 +25,7 @@ version = 1.0.0
    
 2. Nastavte si `user` a `password` v `app_config.ini`.
 
-3. Naimportujte svůj soubor s daty do složky data a smažte vše co je v RDMS_project/sql/sample_data.sql 
+3. (Optional) Naimportujte svůj soubor s daty do složky data a smažte vše co je v RDMS_project/sql/sample_data.sql 
 
 ## Import vlastních dat
 * Zákazníci: CSV soubor s poli first_name, last_name, email, phone.
