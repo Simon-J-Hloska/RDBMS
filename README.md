@@ -28,9 +28,14 @@ version = 1.0.0
 
 1. Ujistěte se, že máte nainstalovaný Python 3 a MySQL.
    
-2. Nastavte si `user` a `password` v `app_config.ini`.
+2. v CMD projektu ve složce RDBMS_project nechte proběhnout tento command:
+   ```python
+      pip install -r requirements.txt
+   ```
+   
+4. Nastavte si `user` a `password` v `app_config.ini`.
 
-3. (Optional) Naimportujte svůj soubor s daty do složky data a smažte vše co je v RDMS_project/sql/sample_data.sql 
+5. (Optional) Naimportujte svůj soubor s daty do složky data a smažte vše co je v RDMS_project/sql/sample_data.sql 
 
 ## Import vlastních dat
 * Zákazníci: CSV soubor s poli first_name, last_name, email, phone.
